@@ -39,14 +39,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0 # If you use VALIDATE_ALL_CODEBASE = true, you can remove this line to improve performances
-      - name: Install Spectral
-        run: npm install -g @stoplight/spectral
-      - name: Install Spectral functions
-        run: npm install -g @stoplight/spectral-functions
-      - name: Install Gherkin Linter
-        run: npm install -g gherkin-lint
-      - name: Run Gherkin Linting
-        run: gherkin-lint code/Test_definitions/*.feature  
+    #  - name: Install Spectral
+    #    run: npm install -g @stoplight/spectral
+    #  - name: Install Spectral functions
+    #    run: npm install -g @stoplight/spectral-functions
+    #  - name: Install Gherkin Linter
+    #    run: npm install -g gherkin-lint
+    #  - name: Run Gherkin Linting
+    #    run: gherkin-lint code/Test_definitions/*.feature  
     # - name: Run spectral:oas Spectral Linting
     #   run: spectral lint code/API_definitions/*.yaml --verbose --ruleset .spectral.yml
         # Replace openapi.yaml file with your API specification file
@@ -68,9 +68,9 @@ jobs:
           DISABLE: COPYPASTE,MARKDOWN
           DISABLE_LINTERS: SPELL_CSPELL,SPELL_LYCHEE,YAML_PRETTIER,REPOSITORY_GRYPE, REPOSITORY_SEMGREP,REPOSITORY_DEVSKIM,REPOSITORY_KICS,REPOSITORY_TRIVY,REPOSITORY_TRIVY_SBOM,REPOSITORY_TRUFFLEHOG,REPOSITORY_CHECKOV,REPOSITORY_GITLEAKS,YAML_V8R,JAVA_PMD,JAVA_CHECKSTYLE
           YAML_YAMLLINT_CONFIG_FILE: ".yamllint.yaml"
-          OPENAPI_SPECTRAL_CONFIG_FILE: ".spectral-owasp.yml"
+          API_SPECTRAL_CONFIG_FILE: ".spectral-owasp.yml"
           YAML_YAMLLINT_FILTER_REGEX_INCLUDE: "(code/)"
-          OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: "(code/)"
+          API_SPECTRAL_FILTER_REGEX_INCLUDE: "(code/)"
 
           # Upload MegaLinter artifacts
       - name: Archive production artifacts
